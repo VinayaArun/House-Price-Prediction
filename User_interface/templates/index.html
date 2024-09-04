@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Your Form Title</title>
+    <style>
+        /* Center the form */
+        *{
+                margin: 0;
+                padding: 0;
+        }
+        .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    width: 100%;
+    margin-top: 5%;
+
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #e0f7fa; /* Light blue background */
+    color: #263238; /* Dark gray font color */
+    flex-direction: column;
+}
+
+/* .box_1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    width: 50%;
+    border-radius: 10px;
+    background-image:  url("{{ url_for('static', filename='img/1.jpg') }}");
+    flex-direction: column;
+    background-color: aqua
+    ;
+} */
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box_1">
+
+        </div>
+<div class="box">
+	<label style="font-size: 20px; font-weight:800;"> House price Predictor</label>
+    <form method="post" class="col-md-10" action="{{ url_for('get_data') }}">
+        
+            
+
+        <div class="form-group">
+            <label for="area">Area (sq ft):</label>
+            <input type="number" id="area" name="area" required><br><br>
+        </div>  
+        <div class="form-group">
+            <label for="bedrooms">Number of Bedrooms:</label>
+            <input type="number" id="bedrooms" name="Number_of_Rooms" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="bathrooms">Number of Bathrooms:</label>
+            <input type="number" id="bathrooms" name="Number_of_Bathroom" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="stories">Number of Stories:</label>
+            <input type="number" id="stories" name="stories"><br><br>
+        </div>
+        <div class="form-group">
+
+
+
+
+
+
+
+        <div class="form-group">
+            <label for="mainroad">Is it near a main road?</label>
+            <select id="mainroad" name="mainroad">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+        </div>
+        <div class="form-group">
+            <label for="guestroom">Does it have a guest room?</label>
+            <select id="guestroom" name="guestroom">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="basement">Does it have a basement?</label>
+            <select id="basement" name="basement">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="hotwaterheating">Hot Water Heating?</label>
+            <select id="hotwaterheating" name="hotwaterheating">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+        </div>
+
+        <div class="form-group">
+        <label for="airconditioning">Air Conditioning?</label>
+        <select id="airconditioning" name="airconditioning">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+        </div>
+
+
+        <div class="form-group">
+            <label for="prefarea">Parking:</label>
+            <select id="prefarea" name="prefarea">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+            </div>
+
+
+            <div class="form-group">
+                <label for="furnishing_status">Furnishing Status:</label>
+                <select id="furnishing_status" name="furnishing_status">
+                    <option value="0">Unfurnished</option>
+                    <option value="1">Partially Furnished</option>
+                    <option value="2">Furnished</option>
+                </select><br><br>
+                </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    {% if data%}
+
+
+        <span style="color:rgb(0, 122, 149);
+                            font-size: 25px;
+                            font-family: 'Courier New', Courier, monospace;
+                            font-weight: 900;"
+                            
+        
+        > The Predicted Price is: £{{data}}</span>
+
+{% endif %}
+
+
+</div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
